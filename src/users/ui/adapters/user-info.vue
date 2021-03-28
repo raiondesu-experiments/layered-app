@@ -12,14 +12,7 @@ export default defineComponent({
     user: {
       type: Object as PropType<User>,
     },
-  },
-  setup(props) {
-    const { user } = toRefs(props);
-
-    return {
-      user,
-    };
-  },
+  }
 })
 </script>
 
