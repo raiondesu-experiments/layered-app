@@ -4,6 +4,6 @@ export const homeRoutes = defineRoutes([
   {
     name: 'Home',
     path: '/',
-    component: () => import('@/home/ui/page.vue')
+    component: () => import('@/home/ui/adapters/main.vue')
   }
 ]);

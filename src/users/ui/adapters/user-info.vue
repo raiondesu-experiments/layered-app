@@ -4,7 +4,7 @@ p.user-info {{ user }}
 
 <script lang="ts">
 import { User } from '@/users/network/adapters';
-import { defineComponent, PropType, toRefs } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 export default defineComponent({
   name: 'UserInfo',

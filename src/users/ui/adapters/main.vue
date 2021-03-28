@@ -27,7 +27,7 @@ export default defineComponent({
 
     const onUserClick = (newUser: User) => {
       getUser(newUser.id).then(value => user.value = value);
-    }
+    };
 
     return {
       user,
