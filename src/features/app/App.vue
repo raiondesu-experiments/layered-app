@@ -1,43 +1,27 @@
 <template lang="pug">
-user-list(
-  @userClick="onUserClick"
-)
-
-user-info(
-  v-if="user"
-  v-bind="{ user }"
-)
+component(:is="layout")
 </template>
 
 <script lang="ts">
-import { IUser } from '@/domain/user/resolvers';
-import { defineComponent, ref } from 'vue';
-import UserList from '@/features/fragments/user-list/UserList.vue';
-import UserInfo from '@/features/fragments/user-info/UserInfo.vue';
-import { loadUserById } from './business';
+import { defineComponent, defineAsyncComponent, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { LoadLayout, TTayoutName } from '@/features/layout/business';
 
 export default defineComponent({
   name: 'App',
-  components: {
-    UserList,
-    UserInfo,
-  },
   setup() {
-    const user = ref<IUser | null>(null);
+    const route = useRoute()
+    const layout = ref();
 
-    const onUserClick = (newUser: IUser) => {
-      loadUserById(newUser.id, user);
-    }
+    watch(route, () => {
+      layout.value = defineAsyncComponent(LoadLayout(route.meta.layout as TTayoutName));
+    }, {
+      immediate: true,
+    });
 
     return {
-      user,
-      onUserClick,
-    };
+      layout,
+    }
   },
 })
 </script>
-
-<style lang="stylus" scoped>
-.user-item
-  cursor pointer
-</style>
