@@ -1,6 +1,5 @@
-import { createApp } from 'vue'
-import App from '@/features/app/App.vue'
-import { router } from '@/domain/routing/business';
+import { createApp } from 'vue';
+import { App, router } from '@/app';
 
 createApp(App)
   .use(router)
