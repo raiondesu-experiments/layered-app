@@ -23,7 +23,7 @@ export default defineComponent({
     const userList = ref<User[]>([]);
 
     const onUserClick = (user: User) => {
-      ctx.emit('userClick', user);
+      ctx.emit('user-click', user);
     }
 
     const users = getUsers(1);

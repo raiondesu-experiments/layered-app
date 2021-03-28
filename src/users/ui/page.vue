@@ -1,6 +1,6 @@
 <template lang="pug">
 user-list(
-  @userClick="onUserClick"
+  @user-click="onUserClick"
 )
 
 user-info(
