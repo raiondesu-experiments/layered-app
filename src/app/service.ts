@@ -1,5 +1,5 @@
-import { routerFor } from '@/_shared/ui';
-import { routes } from './routes';
+import { routerFor } from '@/_shared/ui/router';
+import { routes } from './ui/routes';
 
 export const router = routerFor(routes);
 
