@@ -1,4 +1,4 @@
-import { defineRoutes } from '@/_shared/ui';
+import { defineRoutes } from '@/_shared/ui/router';
 
 export const homeRoutes = defineRoutes([
   {
