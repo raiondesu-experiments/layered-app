@@ -7,13 +7,13 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@types/node": "^14.14.37",
     "ky": "^0.27.0",
     "parakeet-mapper": "^2.3.0",
     "vue": "^3.0.5",
     "vue-router": "^4.0.5"
   },
   "devDependencies": {
+    "@types/node": "^14.14.37",
     "@vitejs/plugin-vue": "^1.1.5",
     "@vue/compiler-sfc": "^3.0.5",
     "pug": "^3.0.2",
