@@ -1,7 +1,6 @@
 import ky from 'ky';
 import { subUrl } from '@/_shared/network/rules';
-import { cachedHooks } from '@/_shared/storage/adapters';
-import { ConvertPage, ConvertResource, ServerPage, ServerResource } from '@/_shared/network/adapters';
+import { cachedHooks, ConvertPage, ConvertResource, ServerPage, ServerResource } from '@/_shared/network/adapters';
 import { ServerUser, ConvertUser } from './data';
 
 export const UserApi = ky.extend({

@@ -17,4 +17,4 @@ export class Cacheable {
   }
 }
 
-export const cachable = new Cacheable(currentAdapter);
+export const cacheable = new Cacheable(currentAdapter);

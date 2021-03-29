@@ -1,9 +1,7 @@
 import ky, { BeforeRequestHook, AfterResponseHook, Options } from 'ky'
-import { cachable } from './cacheable';
+import { cacheable } from '../../storage/adapters/cacheable';
 
-export const fromCacheBeforeHook: BeforeRequestHook = (
-  input, options
-) => {
+export const fromCacheBeforeHook: BeforeRequestHook = (input) => {
   const cachedResponse = responseFromCache(input.url);
 
   if (cachedResponse) {
@@ -11,14 +9,12 @@ export const fromCacheBeforeHook: BeforeRequestHook = (
   }
 }
 
-export const toCacheAfterHook: AfterResponseHook = async (
-  input, options, response
-) => {
+export const toCacheAfterHook: AfterResponseHook = async (input, _, response) => {
   const cachedResponse = responseFromCache(input.url);
 
   if (!cachedResponse) {
     const json = await response.json();
-    cachable.cache(input.url, JSON.stringify(json));
+    cacheable.cache(input.url, JSON.stringify(json));
   }
 }
 
@@ -36,7 +32,7 @@ export const cachedHooks: Options = {
 export const cachedApi = ky.extend(cachedHooks);
 
 export const responseFromCache = (url: string) => {
-  const cache = cachable.fromCache(url);
+  const cache = cacheable.fromCache(url);
 
   if (cache) {
     return new Response(JSON.stringify(cache), {
