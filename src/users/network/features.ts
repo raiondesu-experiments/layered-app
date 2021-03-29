@@ -1,12 +1,13 @@
 import { dataResolver } from '@/_shared/network/adapters';
 import { getList, getUser, User } from './adapters';
+import { toPositive } from './rules';
 
 export const getUsersOnPage = (page: number) => (
-  getList(page)
+  getList(toPositive(page))
     .then<User[]>(dataResolver)
 );
 
 export const getUserData = (id: number) => (
-  getUser(id)
+  getUser(toPositive(id))
     .then<User>(dataResolver)
 );

@@ -1,5 +1,5 @@
-import { homeRoutes } from '@/home/ui/service/routes';
-import { userRoutes } from '@/users/ui/service/routes';
+import { homeRoutes } from '@/home';
+import { userRoutes } from '@/users';
 
 export const routes = [
   ...homeRoutes,
